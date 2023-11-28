@@ -1,9 +1,9 @@
 import streamlit as st
 import pandas as pd
-import openai
 import time
 from datetime import datetime, date, timedelta
 import requests
+import openai
 
 openai.api_key = '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'
 weather_api_key = 'b1db3d47a5132c2b140b8ccddce8cb7d'
