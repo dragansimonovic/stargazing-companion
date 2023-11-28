@@ -21,11 +21,12 @@ def get_coordinates(city):
 
 def get_gpt3_content(prompt):
     try:
-        response = openai.chat.completions.create(
+        response = openai.Completion.create(
             model="text-davinci-003",
-            messages=[{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": prompt}]
+            prompt=prompt,
+            max_tokens=150  # Adjust as needed
         )
-        return response.choices[0].message['content'].strip()
+        return response.choices[0].text.strip()
     except Exception as e:
         return f"An error occurred: {str(e)}"
 
