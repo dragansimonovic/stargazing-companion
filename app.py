@@ -21,15 +21,12 @@ def get_coordinates(city):
 
 def get_gpt3_content(prompt):
     try:
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
-            max_tokens=150  # Adjust as needed
+        response = openai.ChatCompletion.create(
+            model="text-davinci-003",
+            messages=[{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": prompt}]
         )
-        return response.choices[0].text.strip()
-    except openai.error.RateLimitError:
-        return "API usage limit reached. Please try again later."
-    except openai.error.OpenAIError as e:
+        return response.choices[0].message['content'].strip()
+    except Exception as e:
         return f"An error occurred: {str(e)}"
 
 def get_astronomical_info(city, date_str):
