@@ -5,9 +5,9 @@ from datetime import datetime, date, timedelta
 import requests
 import openai
 
-openai.api_key = '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'
-weather_api_key = 'b1db3d47a5132c2b140b8ccddce8cb7d'
-opencage_api_key = '67de5c657586466493b51842679536c4'
+openai.api_key = st.secrets["openai_api_key"]
+weather_api_key = st.secrets["weather_api_key"]
+opencage_api_key = st.secrets["opencage_api_key"]
 
 def get_coordinates(city):
     url = f"https://api.opencagedata.com/geocode/v1/json"
