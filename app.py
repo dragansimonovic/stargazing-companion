@@ -26,7 +26,7 @@ def get_gpt3_content(prompt):
             prompt=prompt,
             max_tokens=150  # Adjust as needed
         )
-        return response.choices[0].text.strip()
+        return response['choices'][0]['text'].strip()
     except Exception as e:
         return f"An error occurred: {str(e)}"
 
