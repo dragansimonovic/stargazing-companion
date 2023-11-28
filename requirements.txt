@@ -1,6 +1,6 @@
 streamlit
 pandas
-openai
 time
 datetime
 requests
+openai
