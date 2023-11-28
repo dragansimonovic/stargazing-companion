@@ -21,7 +21,7 @@ def get_coordinates(city):
 
 def get_gpt3_content(prompt):
     try:
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model="text-davinci-003",
             messages=[{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": prompt}]
         )
